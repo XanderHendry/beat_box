@@ -1,3 +1,4 @@
+require 'pry'
 require './lib/linked_list'
 require './lib/node'
 
@@ -33,39 +34,32 @@ RSpec.describe Linked_list do
   end
   
   describe '#append' do
-    xit 'can re-assign the value of @head' do
+    it 'can re-assign the value of @head' do
       list = Linked_list.new
       expect(list.head).to be_nil
       list.append("beep")
-      expect(list.head).to eq("beep")
+      expect(list.head.data).to eq("beep")
     end
 
-    xit 'makes a Node using string passed as an argument' do
+    it 'makes a Node using string passed as an argument' do
       list = Linked_list.new
       list.append("beep")
       expect(list.head).to be_instance_of(Node)
     end
-    
-    xit 'moves to the next node if @head is not nil' do
-      list = Linked_list.new
-      list.append("beep")
-      list.append
-      expect(list.head.next_node).to be_nil
-    end
 
-    xit 'can re-assign the value of @next_node' do
+    it 'can re-assign the value of @next_node' do
       list = Linked_list.new
       list.append("beep")
       list.append("boop")
       expect(list.head.next_node).to be_instance_of(Node)
     end
 
-    xit 'moves to the next node if @next_node is not nil' do
+    it 'moves to the next node if @next_node is not nil' do
       list = Linked_list.new
       list.append("beep")
       list.append("boop")
-      list.append
-      expect(list.head.next_node.next_node).to be_instance of(Node)
+      list.append("bop")
+      expect(list.head.next_node.next_node).to be_instance_of(Node)
     end
 
   end 

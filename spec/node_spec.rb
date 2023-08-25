@@ -1,9 +1,10 @@
+require 'pry'
 require './lib/linked_list'
 require './lib/node'
 
 RSpec.describe Node do
   describe '#initialize' do
-    xit 'exists' do
+    it 'exists' do
       node = Node.new
       expect(node).to be_instance_of(Node)
     end
@@ -23,5 +24,4 @@ RSpec.describe Node do
       expect(node.next_node).to be_nil
     end
   end
-
 end
