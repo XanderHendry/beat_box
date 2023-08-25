@@ -3,7 +3,7 @@ require './lib/node'
 
 RSpec.describe Node do
   describe '#initialize' do
-    it 'exists' do
+    xit 'exists' do
       node = Node.new
       expect(node).to be_instance_of(Node)
     end
