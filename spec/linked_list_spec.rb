@@ -12,19 +12,19 @@ RSpec.describe Linked_list do
       expect(list.head).to eq(nil)
     end
 
-    it 'has a head that does not have to be nil'
+    it 'has a head that does not have to be nil' do
       list = Linked_list.new("Head")
       expect(list.head).to eq("Head")
     end
 
-    it 'has a head whose value can be changed'
+    it 'has a head whose value can be changed' do
       list = Linked_list.new
       expect(list.head).to eq(nil)
       list.head = "Head"
       expect(list.head).to eq("Head")
     end
 
-    xit 'has a head that can be a Node'
+    xit 'has a head that can be a Node' do
       node = Node.new
       list = Linked_list.new(node)
       expect(list.head).to be_instance_of(Node)
