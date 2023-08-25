@@ -1,4 +1,4 @@
-class Linked_list
+class LinkedList
   attr_reader :head
   attr_writer :head
   def initialize(head = nil)
@@ -25,7 +25,16 @@ class Linked_list
         current_node = current_node.next
         index += 1
       end
-      binding.pry
-      return index
+    return index
   end
+
+  def to_string
+    string = ''
+    current_node = @head
+      while !current_node.nil?
+        string = string + ' ' + current_node.data
+        current_node = current_node.next
+      end
+    string.strip
+  end 
 end

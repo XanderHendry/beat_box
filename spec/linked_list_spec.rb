@@ -2,60 +2,60 @@ require 'pry'
 require './lib/linked_list'
 require './lib/node'
 
-RSpec.describe Linked_list do
-  describe '#inxitialize' do  
-    xit 'exists' do
-      list = Linked_list.new
-      expect(list).to be_instance_of(Linked_list)
+RSpec.describe LinkedList do
+  describe '#initialize' do  
+    it 'exists' do
+      list = LinkedList.new
+      expect(list).to be_instance_of(LinkedList)
     end
 
-    xit 'has a head that defaults to nil' do
-      list = Linked_list.new
+    it 'has a head that defaults to nil' do
+      list = LinkedList.new
       expect(list.head).to be_nil
     end
 
-    xit 'has a head that does not have to be nil' do
-      list = Linked_list.new("Head")
+    it 'has a head that does not have to be nil' do
+      list = LinkedList.new("Head")
       expect(list.head).to eq("Head")
     end
   
-    xit 'has a head whose value can be changed' do
-      list = Linked_list.new
+    it 'has a head whose value can be changed' do
+      list = LinkedList.new
       expect(list.head).to be_nil
       list.head = "Head"
       expect(list.head).to eq("Head")
     end
 
-    xit 'has a head that can be a Node' do
+    it 'has a head that can be a Node' do
       node = Node.new
-      list = Linked_list.new(node)
+      list = LinkedList.new(node)
       expect(list.head).to be_instance_of(Node)
     end
   end
   
   describe '#append' do
-    xit 'can re-assign the value of @head' do
-      list = Linked_list.new
+    it 'can re-assign the value of @head' do
+      list = LinkedList.new
       expect(list.head).to be_nil
       list.append("beep")
       expect(list.head.data).to eq("beep")
     end
 
-    xit 'makes a Node using string passed as an argument' do
-      list = Linked_list.new
+    it 'makes a Node using string passed as an argument' do
+      list = LinkedList.new
       list.append("beep")
       expect(list.head).to be_instance_of(Node)
     end
 
-    xit 'can re-assign the value of @next' do
-      list = Linked_list.new
+    it 'can re-assign the value of @next' do
+      list = LinkedList.new
       list.append("beep")
       list.append("boop")
       expect(list.head.next).to be_instance_of(Node)
     end
 
-    xit 'moves to the next node if @next is not nil' do
-      list = Linked_list.new
+    it 'moves to the next node if @next is not nil' do
+      list = LinkedList.new
       list.append("beep")
       list.append("boop")
       list.append("bop")
@@ -65,25 +65,25 @@ RSpec.describe Linked_list do
 
   describe '#count' do
     it 'returns 0 if the list is empty' do
-      list = Linked_list.new
+      list = LinkedList.new
       expect(list.count).to eq(0)
     end
 
     it 'will return 1 if the list only has a head' do
-      list = Linked_list.new
+      list = LinkedList.new
       list.append("beep")
       expect(list.count).to eq(1)
     end
 
     it "will return 2 if a node follows the head" do
-      list = Linked_list.new
+      list = LinkedList.new
       list.append("beep")
       list.append("boop")
       expect(list.count).to eq(2)
     end
 
     it 'will count any number of nodes' do
-      list = Linked_list.new
+      list = LinkedList.new
       expect(list.count).to eq(0)
       list.append("beep")
       expect(list.count).to eq(1)
@@ -97,22 +97,22 @@ RSpec.describe Linked_list do
   end
 
   describe '#to_string' do
-    xit 'returns an empty string, if @head is nil' do
-      list = Linked_list.new
+    it 'returns an empty string, if @head is nil' do
+      list = LinkedList.new
       expect(list.to_string).to eq("")
     end
 
-    xit 'returns the @data value of any node stored in @head' do
-      list = Linked_list.new
+    it 'returns the @data value of any node stored in @head' do
+      list = LinkedList.new
       list.append("beep")
       expect(list.to_string).to eq("beep")
     end
 
-    xit 'returns the @data value of multiple nodes in a single string' do
-      list = Linked_list.new
+    it 'returns the @data value of multiple nodes in a single string' do
+      list = LinkedList.new
       list.append("beep")
       list.append("boop")
-      expect(list.to_string). eq("beep boop")
+      expect(list.to_string).to eq("beep boop")
     end
   end
 end
