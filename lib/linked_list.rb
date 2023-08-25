@@ -13,20 +13,19 @@ class Linked_list
     new_node = Node.new(sound)
       while current_node.next != nil
         current_node = current_node.next
-        binding.pry
       end
       current_node.next = new_node
     end
   end
   
-   
-    # sound = Node.new(string)
-    # if @head == nil  
-    #   @head = sound
-    # elsif @head.next_node == nil
-    #   @head.next_node = sound
-    # else 
-    #   @head.next_node.next_node = sound
-    # end
-  #end
+  def count
+    index = 0
+    current_node = @head
+      while current_node != nil
+        current_node = current_node.next
+        index += 1
+      end
+      binding.pry
+      return index
+  end
 end
