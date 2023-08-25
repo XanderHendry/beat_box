@@ -63,7 +63,56 @@ RSpec.describe Linked_list do
     end
   end 
 
-  # describe '#count' do
-  #   it 'counts the '  
-  # end
+  describe '#count' do
+    it 'returns 0 if the list is empty' do
+      list = Linked_list.new
+      expect(list.count).to eq(0)
+    end
+
+    it 'will return 1 if the list only has a head' do
+      list = Linked_list.new
+      list.append("beep")
+      expect(list.count).to eq(1)
+    end
+
+    it "will return 2 if a node follows the head" do
+      list = Linked_list.new
+      list.append("beep")
+      list.append("boop")
+      expect(list.count).to eq(2)
+    end
+
+    it 'will count any number of nodes' do
+      list = Linked_list.new
+      expect(list.count).to eq(0)
+      list.append("beep")
+      expect(list.count).to eq(1)
+      list.append("boop")
+      expect(list.count).to eq(2)
+      list.append("bop")
+      expect(list.count).to eq(3)
+      list.append("beep")
+      expect(list.count).to eq(4)
+    end
+  end
+
+  describe '#to_string' do
+    it 'returns an empty string, if @head is nil' do
+      list = Linked_list.new
+      expect(list.to_string).to eq("")
+    end
+
+    it 'returns the @data value of any node stored in @head' do
+      list = Linked_list.new
+      list.append("beep")
+      expect(list.to_string).to eq("beep")
+    end
+
+    it 'returns the @data value of multiple nodes in a single string' do
+      list = Linked_list.new
+      list.append("beep")
+      list.append("boop")
+      expect(list.to_string). eq("beep boop")
+    end
+  end
 end
