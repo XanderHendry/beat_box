@@ -47,21 +47,23 @@ RSpec.describe Linked_list do
       expect(list.head).to be_instance_of(Node)
     end
 
-    it 'can re-assign the value of @next_node' do
+    it 'can re-assign the value of @next' do
       list = Linked_list.new
       list.append("beep")
       list.append("boop")
-      expect(list.head.next_node).to be_instance_of(Node)
+      expect(list.head.next).to be_instance_of(Node)
     end
 
-    it 'moves to the next node if @next_node is not nil' do
+    it 'moves to the next node if @next is not nil' do
       list = Linked_list.new
       list.append("beep")
       list.append("boop")
       list.append("bop")
-      expect(list.head.next_node.next_node).to be_instance_of(Node)
+      expect(list.head.next.next).to be_instance_of(Node)
     end
-
   end 
-  
+
+  # describe '#count' do
+  #   it 'counts the '  
+  # end
 end
