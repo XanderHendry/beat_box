@@ -152,4 +152,35 @@ RSpec.describe LinkedList do
       expect(list.to_string).to eq("beep boop bop beep")
     end
   end
+
+  describe '.find' do
+    it 'takes two parameters, the first indicates the first position to return and the second parameter specifies how many elements to return.' do
+      list = LinkedList.new
+      list.append("beep")
+      list.append("boop")
+      list.append("bop")
+      list.append("beep")
+      expect(list.find(1, 3)).to eq("boop bop beep")
+    end
+  end
+
+  describe '.includes?' do
+    it 'gives back true or false whether the supplied value is in the list' do
+      list = Linkedlist.new
+      list.append("beep")
+      expect(list.includes?("beep")).to eq(true)
+      expect(list.includes?("beep"))
+    end
+  end
+
+  describe '.pop' do
+    it 'removes the last element from the list and returns it.' do
+      list = LinkedList.new
+      list.append("beep")
+      list.append("boop")
+      list.append("bop")
+      expect(list.pop.data).to eq("bop")
+      expect(list.to_string).to eq("beep boop")
+    end
+  end
 end
