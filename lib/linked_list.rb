@@ -41,14 +41,11 @@ class LinkedList
   def prepend(sound)
     if self.head.nil?
       @head = Node.new(sound)
-      # binding.pry
     else 
       current_node = @head
       new_node = Node.new(sound)
-      # binding.pry
       new_node.next = current_node
       @head = new_node
-      # binding.pry
     end
   end
 
@@ -56,23 +53,30 @@ class LinkedList
     elements = sound
     nums = elements.select { |num| num.is_a? Integer}
     sounds = elements.select { |num| num.is_a? String}
+    # binding.pry
     sounds.each do |sort|
       i = 0
-      position = nums.index(i) 
+      position = nums.shift 
       current_node = @head
       new_node = Node.new(sort)
-      binding.pry
-      until position == i
-        i += 1
-        current_node = current_node.next
-        binding.pry
+      # binding.pry
+      if position == 0
+        old_node = @head
+        @head = new_node
+        @head.next = old_node  
+        # binding.pry
+      else
+        until position == i
+          old_node = current_node
+          current_node = current_node.next 
+          i += 1
+          # binding.pry
+        end
+        current_node = old_node
+        new_node.next = current_node.next
+        current_node.next = new_node
+        # binding.pry
       end
-      old_node = current_node
-      binding.pry
-      current_node = new_node
-      binding.pry
-      current_node.next = old_node
-      binding.pry
     end
   end
 end

@@ -3,7 +3,7 @@ require './lib/linked_list'
 require './lib/node'
 
 RSpec.describe LinkedList do
-  xdescribe '#initialize' do  
+  describe '#initialize' do  
     it 'exists' do
       list = LinkedList.new
       expect(list).to be_instance_of(LinkedList)
@@ -33,7 +33,7 @@ RSpec.describe LinkedList do
     end
   end
   
-  xdescribe '.append' do
+  describe '.append' do
     it 'can re-assign the value of @head' do
       list = LinkedList.new
       expect(list.head).to be_nil
@@ -63,7 +63,7 @@ RSpec.describe LinkedList do
     end
   end 
 
-  xdescribe '.count' do
+  describe '.count' do
     it 'returns 0 if the list is empty' do
       list = LinkedList.new
       expect(list.count).to eq(0)
@@ -96,7 +96,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  xdescribe '.to_string' do
+  describe '.to_string' do
     it 'returns an empty string, if @head is nil' do
       list = LinkedList.new
       expect(list.to_string).to eq("")
@@ -116,7 +116,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  xdescribe '.prepend' do
+  describe '.prepend' do
     it 'will add nodes to the beginning of the list.' do
       list = LinkedList.new
       list.append("boop")
@@ -149,7 +149,7 @@ RSpec.describe LinkedList do
       list.prepend("beep")
       list.append("bop")
       list.insert(1, 3, "boop", "beep")
-      expect(list.head.next.data).to eq("beep boop bop beep")
+      expect(list.to_string).to eq("beep boop bop beep")
     end
   end
 end
