@@ -6,7 +6,7 @@ class LinkedList
   end
 
   def append(sound)
-   if self.head == nil
+   if self.head.nil?
     @head = Node.new(sound)
    else
     current_node = @head
@@ -37,4 +37,18 @@ class LinkedList
       end
     string.strip
   end 
+
+  def prepend(sound)
+    if self.head.nil?
+      @head = Node.new(sound)
+      # binding.pry
+    else 
+      current_node = @head
+      new_node = Node.new(sound)
+      # binding.pry
+      new_node.next = current_node
+      @head = new_node
+      # binding.pry
+    end
+  end
 end

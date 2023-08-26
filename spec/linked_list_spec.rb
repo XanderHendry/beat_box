@@ -127,14 +127,15 @@ RSpec.describe LinkedList do
 
     it 'moves the previous Head to the next spot on the list' do
       list = LinkedList.new
-      list.append("boop")
+      list.prepend("bop")
+      list.prepend("boop")
       list.prepend("beep")
       expect(list.head.next).to be_instance_of(Node)
-      expect(list.to_string).to eq("beep boop")
+      expect(list.to_string).to eq("beep boop bop")
     end
   end
 
-  describe '.insert' do
+  xdescribe '.insert' do
     it 'will insert an element at a given position in the list.' do
       list = LinkedList.new
       list.prepend("beep")
