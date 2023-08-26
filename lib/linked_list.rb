@@ -53,30 +53,48 @@ class LinkedList
     elements = sound
     nums = elements.select { |num| num.is_a? Integer}
     sounds = elements.select { |num| num.is_a? String}
-    # binding.pry
     sounds.each do |sort|
       i = 0
       position = nums.shift 
       current_node = @head
       new_node = Node.new(sort)
-      # binding.pry
       if position == 0
         old_node = @head
         @head = new_node
         @head.next = old_node  
-        # binding.pry
       else
         until position == i
           old_node = current_node
           current_node = current_node.next 
           i += 1
-          # binding.pry
         end
         current_node = old_node
         new_node.next = current_node.next
         current_node.next = new_node
-        # binding.pry
       end
     end
   end
+
+  def find(where, what)
+    i = 0
+    current_node = @head
+      until i == where
+        base = current_node
+        current_node = current_node.next
+        binding.pry
+        i += 1
+      end 
+      base = current_node
+      sounds = ''
+    what.times do
+      
+      sounds = sounds + ' ' + base.data
+      binding.pry
+      base = base.next
+    end
+    sounds.strip
+  end
+
+
+
 end
