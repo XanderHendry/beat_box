@@ -94,15 +94,16 @@ class LinkedList
 
   def includes?(sound)
     current_node = @head
-    binding.pry
     if current_node.data != sound
-      until current_node.data == sound || nil
+      until current_node.data == sound || current_node.next == nil
         current_node = current_node.next
-        binding.pry
+        # binding.pry
       end
-      current node == sound
+      current_node.data == sound
+    else
+    current_node.data == sound
+    # binding.pry
     end
-    current_node == sound
   end
       
 
