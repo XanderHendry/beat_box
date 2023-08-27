@@ -7,7 +7,7 @@ RSpec.describe BeatBox do
     bb = BeatBox.new
   end
 
-  def '#Initialize' do
+  describe '#Initialize' do
     it 'exists' do
       expect(bb).to be_instance_of(BeatBox)
     end
@@ -22,6 +22,13 @@ RSpec.describe BeatBox do
       expect(bb.list.to_string).to eq("beep boop bop")
       bb.append("boop boop bop")
       expect(bb.count).to eq(6)
+    end
+  end
+  
+  xdescribe '.play' do
+    it 'plays a sound based on the LinkedList' do
+      bb.append("beep beep boop bop boop bop bop")
+      expect(bb.count).to eq(7)
     end
   end
 end
