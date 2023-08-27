@@ -81,20 +81,30 @@ class LinkedList
       until i == where
         base = current_node
         current_node = current_node.next
-        binding.pry
         i += 1
       end 
       base = current_node
       sounds = ''
-    what.times do
-      
+    what.times do      
       sounds = sounds + ' ' + base.data
-      binding.pry
       base = base.next
     end
     sounds.strip
   end
 
+  def includes?(sound)
+    current_node = @head
+    binding.pry
+    if current_node.data != sound
+      until current_node.data == sound || nil
+        current_node = current_node.next
+        binding.pry
+      end
+      current node == sound
+    end
+    current_node == sound
+  end
+      
 
 
 end

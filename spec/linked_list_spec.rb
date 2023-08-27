@@ -166,10 +166,10 @@ RSpec.describe LinkedList do
 
   describe '.includes?' do
     it 'gives back true or false whether the supplied value is in the list' do
-      list = Linkedlist.new
+      list = LinkedList.new
       list.append("beep")
       expect(list.includes?("beep")).to eq(true)
-      expect(list.includes?("beep"))
+      expect(list.includes?("boop")).to eq(false)
     end
   end
 
