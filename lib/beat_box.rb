@@ -8,13 +8,17 @@ class BeatBox
   def append(sounds)
     words = sounds.split(' ')
     words.each do |sound|
-      @list.append(sound)
-      binding.pry
+            @list.append(sound)
+
     end
-    binding.pry
   end
 
   def count
     @list.count
   end
-end
+
+  def play 
+    beats = @list.to_string
+    `say -r 100 -v Fred #{beats}`
+  end
+end     

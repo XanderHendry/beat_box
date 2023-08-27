@@ -26,7 +26,7 @@ RSpec.describe BeatBox do
     end
   end
   
-  xdescribe '.play' do
+  describe '.play' do
     it 'plays a sound based on the LinkedList' do
       @bb.append("beep beep boop bop boop bop bop")
       expect(@bb.count).to eq(7)
