@@ -174,7 +174,7 @@ RSpec.describe LinkedList do
   end
 
   describe '.pop' do
-    xit 'removes the last element from the list and returns it.' do
+    it 'removes the last element from the list and returns it.' do
       list = LinkedList.new
       list.append("beep")
       list.append("boop")

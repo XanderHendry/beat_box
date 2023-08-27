@@ -97,15 +97,23 @@ class LinkedList
     if current_node.data != sound
       until current_node.data == sound || current_node.next == nil
         current_node = current_node.next
-        # binding.pry
       end
       current_node.data == sound
     else
     current_node.data == sound
-    # binding.pry
     end
   end
-      
-
+    
+  def pop
+    current_node = @head
+    if !current_node.nil?
+      while !current_node.next.nil?
+        base = current_node
+        current_node = current_node.next
+      end
+      base.next = nil
+      return current_node
+    end
+  end
 
 end
