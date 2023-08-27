@@ -19,6 +19,6 @@ class BeatBox
 
   def play 
     beats = @list.to_string
-    `say -r 100 -v Fred #{beats}`
+    `say -r 300 -v Boing #{beats}`
   end
-end     
+end  
