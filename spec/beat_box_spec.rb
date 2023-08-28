@@ -75,4 +75,38 @@ RSpec.describe BeatBox do
       expect(bb.play).to eq(`say -r 200 -v Boing "beep beep boop bop boop bop bop"`)
     end
   end
+
+  describe '.rate and .reset_rate' do
+    bb = BeatBox.new
+    bb.append("beep beep boop bop boop bop bop")
+    it 'will change the rate that BeatBox plays' do
+      expect(bb.rate).to eq(500)
+      bb.rate = 100
+      expect(bb.play).to eq(100)
+    end
+
+    it 'will reset the rate to 500' do
+      bb.rate = 100
+      expect(bb.rate).to eq(100)
+      bb.reset_rate
+      expect(bb.rate).to eq(500)
+    end
+  end
+
+  describe '.voice and .reset_voice' do
+    bb = BeatBox.new
+    bb.append("beep beep boop bop boop bop bop")
+    it 'will change tthe voice used by BeatBox' do
+      expect(bb.voice).to eq("Boing")
+      bb.voice = "Daniel"
+      expect(bb.voice).to eq("Daniel")
+    end
+    
+    it 'will reset the voice to Boing' do
+      bb.voice = "Daniel"
+      expect(bb.voice).to eq("Daniel")
+      bb.reset_voice
+      expect(bb.voice).to eq("Boing")
+    end
+  end 
 end
