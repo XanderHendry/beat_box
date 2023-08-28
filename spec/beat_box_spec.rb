@@ -17,13 +17,15 @@ RSpec.describe BeatBox do
   end
   describe '.append' do
     it 'will add multiple sounds at once' do
+      bb = BeatBox.new
       bb.append("beep boop bop")
       expect(bb.list.to_string).to eq("beep boop bop")
     end
     
     it 'will only accept certain sounds.' do
+      bb = BeatBox.new
       bb.append("beep boop coding boo bop is beep bee fun! boo bopbop")
-      expect(bb.to_string).to eq('beep boop boo bop beep bee boo bopbop')
+      expect(bb.list.to_string).to eq('beep boop boo bop beep bee boo bopbop')
     end
   end
   
@@ -37,7 +39,6 @@ RSpec.describe BeatBox do
   end
   
   describe '.play' do
-    
     it 'plays a sound based on the LinkedList' do
       bb = BeatBox.new
       bb.append("beep beep boop bop boop bop bop")
