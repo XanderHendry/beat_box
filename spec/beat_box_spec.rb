@@ -47,17 +47,17 @@ RSpec.describe BeatBox do
 
     it 'will add multiple sounds at once' do
       bb = BeatBox.new
-      bb.prepend("beep boop bop")
+      bb.prepend("bop boop beep")
       expect(bb.list.to_string).to eq("beep boop bop")
     end
     
     it 'will only accept certain sounds.' do
       bb = BeatBox.new
-      bb.prepend("beep boop coding boo bop is beep bee fun! boo bopbop")
+      bb.prepend("bopbop boo fun! bee beep is bop boo coding boop beep")
       expect(bb.list.to_string).to eq('beep boop boo bop beep bee boo bopbop')
     end
   end
-  
+
   describe '.count' do
     it 'will return the number of nodes contained in the list with .count' do
       bb = BeatBox.new
