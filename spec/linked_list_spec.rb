@@ -3,7 +3,7 @@ require './lib/linked_list'
 require './lib/node'
 
 RSpec.describe LinkedList do
-  xdescribe '#initialize' do  
+  describe '#initialize' do  
     it 'exists' do
       list = LinkedList.new
       expect(list).to be_instance_of(LinkedList)
@@ -63,7 +63,7 @@ RSpec.describe LinkedList do
     end
   end 
 
-  xdescribe '.count' do
+  describe '.count' do
     it 'returns 0 if the list is empty' do
       list = LinkedList.new
       expect(list.count).to eq(0)
@@ -96,7 +96,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  xdescribe '.to_string' do
+  describe '.to_string' do
     it 'returns an empty string, if @head is nil' do
       list = LinkedList.new
       expect(list.to_string).to eq("")
@@ -116,7 +116,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  xdescribe '.prepend' do
+  describe '.prepend' do
     it 'will add nodes to the beginning of the list.' do
       list = LinkedList.new
       list.append("boop")
@@ -135,7 +135,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  xdescribe '.insert' do
+  describe '.insert' do
     it 'will insert an element at a given position in the list.' do
       list = LinkedList.new
       list.prepend("beep")
@@ -153,7 +153,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  xdescribe '.find' do
+  describe '.find' do
     it 'takes two parameters, the first indicates the first position to return and the second parameter specifies how many elements to return.' do
       list = LinkedList.new
       list.append("beep")
@@ -164,7 +164,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  xdescribe '.includes?' do
+  describe '.includes?' do
     it 'gives back true or false whether the supplied value is in the list' do
       list = LinkedList.new
       list.append("beep")
@@ -173,7 +173,7 @@ RSpec.describe LinkedList do
     end
   end
 
-  xdescribe '.pop' do
+  describe '.pop' do
     it 'removes the last element from the list and returns it.' do
       list = LinkedList.new
       list.append("beep")

@@ -49,24 +49,21 @@ class LinkedList
     end
   end
 
-  def insert(*sound)
-    elements = sound
-    nums = elements.select { |num| num.is_a? Integer}
-    sounds = elements.select { |num| num.is_a? String}
-    sounds.each do |sort|
-      i = 0
+  def insert(*elements)
+    nums = elements.select { |element| element.is_a? Integer}
+    sounds = elements.select { |element| element.is_a? String}
+    sounds.each_with_index do |sound, index|
       position = nums.shift 
       current_node = @head
-      new_node = Node.new(sort)
+      new_node = Node.new(sound)
       if position == 0
         old_node = @head
         @head = new_node
         @head.next = old_node  
       else
-        until position == i
+        until position == index
           old_node = current_node
           current_node = current_node.next 
-          i += 1
         end
         current_node = old_node
         new_node.next = current_node.next
