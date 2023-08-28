@@ -15,7 +15,15 @@ RSpec.describe BeatBox do
       expect(bb.list).to be_instance_of(LinkedList)
     end
   end
+  
   describe '.append' do
+    it 'will add sounds to the end of the list' do
+      bb = BeatBox.new
+      bb.append("beep")
+      bb.append("boop")
+      expect(bb.list.to_string).to eq("beep boop")
+    end
+
     it 'will add multiple sounds at once' do
       bb = BeatBox.new
       bb.append("beep boop bop")
@@ -25,6 +33,27 @@ RSpec.describe BeatBox do
     it 'will only accept certain sounds.' do
       bb = BeatBox.new
       bb.append("beep boop coding boo bop is beep bee fun! boo bopbop")
+      expect(bb.list.to_string).to eq('beep boop boo bop beep bee boo bopbop')
+    end
+  end
+  
+  describe '.prepend' do
+    it 'will add sounds to the start of the list' do
+      bb = BeatBox.new
+      bb.append("boop")
+      bb.prepend("beep")
+      expect(bb.list.to_string).to eq("beep boop")
+    end
+
+    it 'will add multiple sounds at once' do
+      bb = BeatBox.new
+      bb.prepend("beep boop bop")
+      expect(bb.list.to_string).to eq("beep boop bop")
+    end
+    
+    it 'will only accept certain sounds.' do
+      bb = BeatBox.new
+      bb.prepend("beep boop coding boo bop is beep bee fun! boo bopbop")
       expect(bb.list.to_string).to eq('beep boop boo bop beep bee boo bopbop')
     end
   end
