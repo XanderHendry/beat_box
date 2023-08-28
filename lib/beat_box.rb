@@ -8,11 +8,23 @@ class BeatBox
   def append(sounds)
     words = sounds.split(' ')
     filter = ["beep", "boop", "bop", "boo", "bee", "bopbop"]
-    binding.pry
+    # binding.pry
     words.each do |sound|
       if filter.include?(sound)
         @list.append(sound)
-        binding.pry
+        # binding.pry
+      end
+    end
+  end
+
+  def prepend(sounds)
+    words = sounds.split(' ')
+    filter = ["beep", "boop", "bop", "boo", "bee", "bopbop"]
+    # binding.pry
+    words.each do |sound|
+      if filter.include?(sound) 
+        @list.prepend(sound)
+        # binding.pry
       end
     end
   end
