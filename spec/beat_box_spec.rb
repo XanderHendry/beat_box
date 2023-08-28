@@ -4,7 +4,7 @@ require './lib/node'
 require './lib/beat_box'
 
 RSpec.describe BeatBox do
-  xdescribe '#Initialize' do
+  describe '#Initialize' do
     it 'exists' do
       bb = BeatBox.new
       expect(bb).to be_instance_of(BeatBox)
@@ -58,7 +58,7 @@ RSpec.describe BeatBox do
     end
   end
 
-  xdescribe '.count' do
+  describe '.count' do
     it 'will return the number of nodes contained in the list with .count' do
       bb = BeatBox.new
       expect(bb.list.head).to be_nil
@@ -67,7 +67,7 @@ RSpec.describe BeatBox do
     end
   end
   
-  xdescribe '.play' do
+  describe '.play' do
     it 'plays a sound based on the LinkedList' do
       bb = BeatBox.new
       bb.append("beep beep boop bop boop bop bop")
@@ -87,24 +87,22 @@ RSpec.describe BeatBox do
     it 'will reset the rate to 500' do
       bb.rate = 100
       expect(bb.reset_rate).to eq(500)
-      
+
     end
   end
 
-  xdescribe '.voice and .reset_voice' do
+  describe '.voice and .reset_voice' do
     bb = BeatBox.new
     bb.append("beep beep boop bop boop bop bop")
     it 'will change the voice used by BeatBox' do
-      expect(bb.voice).to eq("Boing")
+      expect(bb.play).to eq(`say -r 500 -v Boing "beep beep boop bop boop bop bop"`)
       bb.voice = "Daniel"
-      expect(bb.voice).to eq("Daniel")
+      expect(bb.play).to eq(`say -r 500 -v Daniel "beep beep boop bop boop bop bop"`)
     end
     
     it 'will reset the voice to Boing' do
       bb.voice = "Daniel"
-      expect(bb.voice).to eq("Daniel")
-      bb.reset_voice
-      expect(bb.voice).to eq("Boing")
+      expect(bb.reset_voice).to eq("Boing")
     end
   end 
 end

@@ -35,11 +35,17 @@ class BeatBox
   def play 
     beats = @list.to_string
     @rate = 500
-    `say -r = #{@rate} -v = Boing #{beats}`
+    @voice = "Boing"
+    `say -r = #{@rate} -v = #{@voice} #{beats}`
   end
 
   def reset_rate
     @rate = 500
     @rate
+  end
+
+  def reset_voice
+    @voice = "Boing"
+    @voice
   end
 end  
