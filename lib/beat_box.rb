@@ -7,9 +7,13 @@ class BeatBox
 
   def append(sounds)
     words = sounds.split(' ')
+    filter = ["beep", "boop", "bop", "boo", "bee", "bopbop"]
+    binding.pry
     words.each do |sound|
-            @list.append(sound)
-
+      if filter.include?(sound)
+        @list.append(sound)
+        binding.pry
+      end
     end
   end
 
@@ -19,6 +23,6 @@ class BeatBox
 
   def play 
     beats = @list.to_string
-    `say -r 300 -v Boing #{beats}`
+    `say -r 200 -v Boing #{beats}`
   end
 end  
