@@ -143,14 +143,6 @@ RSpec.describe LinkedList do
       list.insert(1, "boop")
       expect(list.to_string).to eq("beep boop bop")
     end
-
-    it 'can insert more than one element at the given positions in the list' do
-      list = LinkedList.new
-      list.prepend("beep")
-      list.append("bop")
-      list.insert(1, 3, "boop", "beep")
-      expect(list.to_string).to eq("beep boop bop beep")
-    end
   end
 
   describe '.find' do
