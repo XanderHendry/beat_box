@@ -1,4 +1,5 @@
 class BeatBox
+
   attr_reader :list
   attr_writer :list
   def initialize(string = nil)
@@ -14,6 +15,7 @@ class BeatBox
     end
   end
 
+
   def append(string)
     sounds = string.split(' ')
     filter = ["beep", "boop", "bop", "boo", "bee", "bopbop"]
@@ -27,6 +29,7 @@ class BeatBox
   def prepend(string)
     sounds = string.split(' ')
     filter = ["beep", "boop", "bop", "boo", "bee", "bopbop"]
+
     # binding.pry
     sounds.each do |sound|
       if filter.include?(sound) 
@@ -67,6 +70,18 @@ class BeatBox
 
   def play 
     beats = @list.to_string
-    `say -r 200 -v Boing #{beats}`
+    @rate = 500
+    @voice = "Boing"
+    `say -r = #{@rate} -v = #{@voice} #{beats}`
+  end
+
+  def reset_rate
+    @rate = 500
+    @rate
+  end
+
+  def reset_voice
+    @voice = "Boing"
+    @voice
   end
 end  
