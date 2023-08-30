@@ -49,28 +49,50 @@ class LinkedList
     end
   end
 
-  def insert(*elements)
-    nums = elements.select { |element| element.is_a? Integer}
-    sounds = elements.select { |element| element.is_a? String}
-    sounds.each_with_index do |sound, index|
-      position = nums.shift 
+  def insert(position, string)
+      new_node = Node.new(string)
       current_node = @head
-      new_node = Node.new(sound)
-      if position == 0
-        old_node = @head
-        @head = new_node
-        @head.next = old_node  
-      else
-        until position == index
-          old_node = current_node
-          current_node = current_node.next 
+      base = current_node
+      position.times do
+        if current_node.next.nil?
+          break
         end
-        current_node = old_node
-        new_node.next = current_node.next
-        current_node.next = new_node
+         base = current_node
+         current_node = current_node.next
       end
-    end
+      new_node.next = current_node
+      base.next = new_node
   end
+
+
+
+
+  # def insert(*elements)
+  #   elements = elements.flatten
+  #   binding.pry
+  #   nums = elements.select { |element| element.is_a? Integer}
+  #   sounds = elements.select { |element| element.is_a? String}
+  #   sounds.each do |sound|
+  #     i = 0
+  #     position = nums.shift 
+  #     current_node = @head
+  #     new_node = Node.new(sound)
+  #     if position == 0
+  #       old_node = @head
+  #       @head = new_node
+  #       @head.next = old_node  
+  #     else
+  #       until position == i
+  #         old_node = current_node
+  #         current_node = current_node.next 
+  #         i += 1
+  #       end
+  #       current_node = old_node
+  #       new_node.next = current_node.next
+  #       current_node.next = new_node
+  #     end
+  #   end
+  # end
 
   def find(where, what)
     i = 0

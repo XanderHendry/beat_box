@@ -10,9 +10,19 @@ RSpec.describe BeatBox do
       expect(bb).to be_instance_of(BeatBox)
     end
     
-    it 'contains a LinkedList by default' do
+    it 'contains an empty LinkedList by default' do
       bb = BeatBox.new
       expect(bb.list).to be_instance_of(LinkedList)
+    end
+
+    it 'does not have to have an empty LinkedList' do
+      bb = BeatBox.new("beep")
+      expect(bb.to_string).to eq("beep")
+    end
+
+    it 'can be initialized with multiple sounds to add to the list' do
+      bb = BeatBox.new("beep boop bop bee boop boo bopbop")
+      expect(bb.to_string).to eq("beep boop bop bee boop boo bopbop")      
     end
   end
   
@@ -55,6 +65,26 @@ RSpec.describe BeatBox do
       bb = BeatBox.new
       bb.prepend("bopbop boo fun! bee beep is bop boo coding boop beep")
       expect(bb.list.to_string).to eq('beep boop boo bop beep bee boo bopbop')
+    end
+  end
+
+  describe '.insert' do
+    it 'will add sounds to the list using the indicated position' do
+      bb = BeatBox.new("beep boop bop")
+      bb.insert(1, "beep")
+      expect(bb.list.to_string).to eq("beep beep boop bop")
+    end
+
+    it 'will add multiple sounds at once' do
+      bb = BeatBox.new("beep boop bop")
+      bb.insert(2, "bop boop beep")
+      expect(bb.list.to_string).to eq("beep boop beep boop bop bop")
+    end
+    
+    it 'will only accept certain sounds.' do
+      bb = BeatBox.new("beep boop bop")
+      bb.insert(1, "bopbop boo fun! bee beep is bop boo coding boop beep")
+      expect(bb.list.to_string).to eq('beep beep boop boo bop beep bee boo bopbop boop bop')
     end
   end
 
